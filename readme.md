@@ -6,6 +6,8 @@ A member of the community archived the code and decided to kindly share with me,
 
 If you want to fork or continue enhancing this project, feel free to do so, I'm unable promisse I'll be able to enhance it due to lack of programming knowledge but it's a VERY useful tool for shard creators with features like multi-selection, tiledata importing and the ability to greatly organize your art.mul files.
 
+![Download it here](https://github.com/2dchaos/UO_Art_Merge/releases/tag/x64)
+
 ![interface](/screenshot.png)
 
 # Original Readme
