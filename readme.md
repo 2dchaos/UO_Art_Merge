@@ -1,6 +1,6 @@
 # Disclaimer
 
-This was coded and made by Praxiiz of the servUO community in 2014. For personal reasons he had to delete it.
+This was coded and made by Praxiiz of the servUO community a few years ago, but For personal reasons he had to delete it.
 
 A member of the community archived the code and decided to kindly share with me, so I'm putting it here for archival purposes.
 
