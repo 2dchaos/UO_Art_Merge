@@ -1,0 +1,16 @@
+C:\temp\UoArtMerge\source\UoArtMerge\bin\x64\Release\UoArtMerge.exe
+C:\temp\UoArtMerge\source\UoArtMerge\bin\x64\Release\UoArtMerge.pdb
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge.csprojAssemblyReference.cache
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\SaveDialog.baml
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\MainWindow.g.cs
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\SaveDialog.g.cs
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\App.g.cs
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\GeneratedInternalTypeHelper.g.cs
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge_MarkupCompile.cache
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge_MarkupCompile.lref
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\MainWindow.baml
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge.g.resources
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge.Properties.Resources.resources
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge.csproj.GenerateResource.cache
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge.exe
+C:\temp\UoArtMerge\source\UoArtMerge\obj\x64\Release\UoArtMerge.pdb

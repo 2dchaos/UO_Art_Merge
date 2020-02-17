@@ -1,0 +1,15 @@
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\SaveDialog.baml
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\MainWindow.g.cs
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\SaveDialog.g.cs
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\App.g.cs
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\UoArtMerge_MarkupCompile.cache
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\UoArtMerge_MarkupCompile.lref
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\bin\Release\UoArtMerge.exe
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\bin\Release\UoArtMerge.pdb
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\MainWindow.baml
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\UoArtMerge.g.resources
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\UoArtMerge.Properties.Resources.resources
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\UoArtMerge.csproj.GenerateResource.Cache
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\UoArtMerge.exe
+C:\Users\Praxiiz\Projects\UoArtMerge\UoArtMerge\obj\x86\Release\UoArtMerge.pdb

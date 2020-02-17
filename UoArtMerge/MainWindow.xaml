@@ -1,0 +1,498 @@
+﻿<!-- Copyright (C) 2013 Ian Karlinsey
+ 
+ UOArtMerge is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ UOArtMerge is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with UltimaLive.  If not, see <http://www.gnu.org/licenses/>.     
+-->
+    <Window x:Class="UOArtMerge.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:merge="clr-namespace:UOArtMerge"
+        Title="UO Art Merge" Height="673" Width="993" Name="This" ResizeMode="NoResize"
+        Background="AntiqueWhite" 
+        >
+
+    <Window.Resources>
+        <merge:BitmapImageConverter x:Key="ImageConverter" />
+        <merge:VisibilityConverter x:Key="VisibilityConverter" />
+
+        <Style x:Key="Clipboard1Icon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 307.13415 105.36704 0 -101.8610029 -310.2770043 0 0 310.1370029 101.7230003 0 0 101.861 310.277004 0 0 -310.137 z m -270.277004 168.276 0 -230.137003 230.277004 0 0 61.861003 -168.554004 0 0 168.275 -61.723 0 z m 332.000004 101.861 -230.277 0 0 -230.137 230.277 0 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+        <Style x:Key="Clipboard2Icon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 307.13415 105.36704 0 -101.8610029 -310.2770043 0 0 310.1370029 101.7230003 0 0 101.861 310.277004 0 0 -310.137 z m -270.277004 168.276 0 -230.137003 230.277004 0 0 61.861003 -168.554004 0 0 168.275 -61.723 0 z m 332.000004 101.861 -230.277 0 0 -230.137 230.277 0 z m -111.183 -57.65 0 -15.424 c 31.142 -28.14 49.417 -43.125 49.625 -59.014 0 -8.886 -5.197 -15.926 -17.771 -15.926 -9.389 0 -17.604 4.693 -23.305 8.885 l -7.208 -18.106 c 8.047 -6.202 20.956 -11.231 35.542 -11.231 24.812 0 38.224 14.417 38.224 34.032 0 23.321 -21.255 40.653 -39.062 55.492 l 0 0.336 41.241 0 0 20.956 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+
+        <Style x:Key="UnlinkedIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 256.52865 352.00577 -70.024 48.323 c -52.488 36.222 -124.405964 23.038 -160.629964 -29.451 -36.225 -52.492 -23.0380003 -124.406 29.451 -160.631 l 70.022964 -48.322 31.494 45.636 -70.021004 48.322 c -27.24196 18.8 -34.10896 56.256 -15.31 83.499 18.798 27.242 56.257004 34.111 83.499004 15.311 l 70.024 -48.323 31.494 45.636 z m 91.313 -90.966 48.745 -69.729 c 36.54 -52.27 23.787 -124.262995 -28.485 -160.803997 -52.271 -36.5400001 -124.267 -23.7860001 -160.805 28.485 l -48.745 69.729997 45.447 31.768 48.745 -69.729995 c 18.965 -27.129 56.462 -33.771002 83.59 -14.808 27.129 18.964 33.772 56.461995 14.808 83.590995 l -48.744 69.729 45.444 31.768 z m -41.631 88.76 -28.138 4.008 8.576 60.242 28.138 -4.004 -8.576 -60.246 z m 43.162 -67.29 -4.006 28.138 60.242 8.576 4.008 -28.137 -60.244 -8.577 z m 9.667 100.831 20.092 -20.102 -43.034 -43.019 -20.093 20.101 43.035 43.02 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+        <Style x:Key="LinkedIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 111.65371 156.04168 c 7.54104 -7.54 15.90204 -13.757 24.79404 -18.659 49.556 -27.318 113.117 -12.788 144.97 35.518 l -38.547 38.547 c -11.059 -25.227 -38.5 -39.565 -65.813 -33.456 -10.282 2.3 -20.054 7.427 -28.039 15.413 l -73.898037 73.89601 c -22.433 22.433 -22.432 58.936 0 81.369 22.433 22.433 58.935037 22.433 81.368037 0 l 22.78 -22.779 c 20.71 8.217 42.938 11.508 64.862 9.863 l -50.278 50.278 c -43.105 43.105 -112.991037 43.105 -156.096037 0 -43.1050001 -43.104 -43.1060001 -112.991 -10e-4 -156.096 l 73.895997 -73.89401 z m 117.34804 -117.349 -50.278 50.278 c 21.928 -1.643 44.152 1.648 64.863 9.865 l 22.779 -22.78 c 22.434 -22.434 58.936 -22.434 81.37 0 22.434 22.434 22.434 58.936 0 81.37 l -73.897 73.89501 c -22.501 22.501 -59.061 22.311 -81.368 0 -5.202 -5.201 -9.694 -11.678 -12.484 -18.04001 l -38.546 38.54601 c 4.049 6.142 8.261 11.453 13.666 16.858 13.949 13.95 31.698 24.339 52.117 29.251 26.466 6.37 54.823 2.839 79.185 -10.592 8.892 -4.903 17.254 -11.119 24.794 -18.659 l 73.896 -73.89501 c 43.105 -43.105 43.105 -112.991 10e-4 -156.097 -43.106 -43.10499 -112.992 -43.10499 -156.098 0 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+        <Style x:Key="OpenIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="M 385.15443 335.84504 H 26.571426 L 2.5714257 148.03304 H 414.57143 l -29.417 187.812 z m -2.583 -222.773 v -77.303 h -201.979 c -8.879 0 -17.396 -3.513 -23.693 -9.771 L 133.92143 3.1650399 H 33.571426 V 113.07204 H 382.57143 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+
+        <Style x:Key="SaveIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 232.52311 52.980896 h 43 V 130.6479 h -43 V 52.980896 z M 329.85714 0.64789571 H 2.8571143 V 412.6479 H 402.85714 V 73.647896 l -73 -73.00000029 z M 97.357114 30.647896 H 300.85714 V 152.6479 H 97.357114 V 30.647896 z M 345.19014 379.9799 H 60.524114 V 220.3139 H 345.19014 v 159.666 z m -29.833 -112.832 H 90.357114 v -20 H 315.35714 v 20 z m 0 23 H 90.357114 v 20 H 315.35714 v -20 z m 0 43 H 90.357114 v 20 H 315.35714 v -20 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+        <Style x:Key="DeleteIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="M 208.57144 3.5050386 C 94.800443 3.5050386 2.5714429 95.734039 2.5714429 209.50504 c 0 113.771 92.2290001 206 205.9999971 206 113.77099 0 205.99999 -92.229 205.99999 -206 0 -113.771001 -92.229 -206.0000014 -205.99999 -206.0000014 z m 78.12399 328.5450014 -77.12199 -77.117 -77.123 77.127 -41.424997 -41.449 77.105997 -77.117 -77.114997 -77.11 41.447997 -41.424001 77.103 77.092001 77.08999 -77.102001 41.459 41.432001 -77.10399 77.108 77.11299 77.102 -41.43 41.458 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#FFFF0000"/>
+        </Style>
+
+        <Style x:Key="ClipboardIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="M 359.67315 63.296039 V 415.50504 H 6.0411428 V 63.296039 H 85.929143 l -40.317 39.904001 v 271.732 H 319.10215 v -271.732 l -39.729 -39.904001 h 80.3 z M 99.697147 317.64204 H 268.02115 v -30.053 H 99.697147 v 30.053 z m 0 -55.516 H 267.98815 v -30.055 H 99.697147 v 30.055 z m 168.291003 -85.486 H 99.697147 v 30.055 H 267.98815 v -30.055 z m -32.899 -114.233001 v -7.047 c 0 -28.639 -23.216 -51.8549997 -51.855 -51.8549997 -28.639 0 -51.854 23.2169997 -51.854 51.8549997 v 7.047 L 74.768143 119.49304 H 291.94815 l -56.859 -57.086001 z m -51.479 9.264001 c -9.842 0 -17.82 -7.979001 -17.82 -17.822001 0 -9.842 7.979 -17.82 17.82 -17.82 9.845 0 17.823 7.979 17.823 17.82 0 9.844 -7.978 17.822001 -17.823 17.822001 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+        <Style x:Key="ClipboardBlankIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 359.67315 63.296039 0 352.209001 -353.6320072 0 0 -352.209001 79.8880002 0 -40.317 39.904001 0 271.732 273.490007 0 0 -271.732 -39.729 -39.904001 z m -124.584 -0.889 0 -7.047 c 0 -28.639 -23.216 -51.8549997 -51.855 -51.8549997 -28.639 0 -51.854 23.2169997 -51.854 51.8549997 l 0 7.047 -56.612007 57.086001 217.180007 0 z m -51.479 9.264001 c -9.842 0 -17.82 -7.979001 -17.82 -17.822001 0 -9.842 7.979 -17.82 17.82 -17.82 9.845 0 17.823 7.979 17.823 17.82 0 9.844 -7.978 17.822001 -17.823 17.822001 z" FillRule="NonZero" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+        <Style x:Key="ClipboardXIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 180 146.36219 c -56.9644 0 -103.142857 46.17846 -103.142857 103.14286 0 56.96439 46.178457 103.14285 103.142857 103.14285 56.96439 0 103.14285 -46.17846 103.14285 -103.14285 0 -56.9644 -46.17846 -103.14286 -103.14285 -103.14286 z m 39.11617 164.50034 -38.61448 -38.61198 -38.61498 38.61699 -20.74123 -20.75325 38.60647 -38.61198 -38.61098 -38.60847 20.75275 -20.74073 38.60497 38.59946 38.59846 -38.60446 20.75825 20.74473 -38.60547 38.60747 38.60997 38.60447 -20.74373 20.75775 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#FFFF0000"/>
+        </Style>
+
+        <Style x:Key="PaperWithClipIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 215.17936 104.14129 -105.526 105.526 c -24.496003 24.497 -64.357003 24.497 -88.855003 0 -24.4959999 -24.498 -24.4959999 -64.359 0 -88.854 L 124.45236 17.159291 c 18.205 -18.2049996 47.828 -18.2069996 66.033 0 18.208 18.205 18.208 47.829 0 66.036 L 98.456357 175.22329 c -11.855 11.855 -31.145 11.855 -43.002 0 -11.855 -11.854 -11.854 -31.145 0.002 -43.001 l 74.287003 -74.286999 15.488 15.487 -74.287003 74.288999 c -3.316 3.315 -3.316 8.707 0 12.024 3.314 3.312 8.707 3.312 12.023 0 L 174.99636 67.703291 c 9.664 -9.665 9.664 -25.391 0 -35.058 -9.666 -9.665 -25.393 -9.665 -35.057 0.002 L 36.288357 136.30229 c -15.957 15.955 -15.959 41.919 0 57.876 15.957 15.957 41.92 15.957 57.877 0 L 199.69136 88.652291 l 15.488 15.488999 z m 90.043 75.306 h -121.356 l -27.803 27.804 h 149.159 v -27.804 z m 0.031 60.628 h -179.82 v 27.804 h 179.821 v -27.804 z m -88.64 -93.375 h 88.609 v -27.804 h -60.805 l -27.804 27.804 z m 16.873 -113.036999 c 1.152 5.367 1.764 10.891 1.764 16.513 0 7.045 -0.943 13.942 -2.742 20.56 h 112.279 c 0 0 0 172.685999 0 202.110999 0 58.501 -72.225 35.063 -72.225 35.063 0 0 22.113 70.522 -32.438 70.522 -29.715 0 -44.547 0 -154.225003 0 v -121.576 c -6.709 1.497 -13.627 2.293 -20.674 2.293 -5.559 0 -11.035 -0.506 -16.398 -1.443 v 157.799 H 240.68936 c 63.176 0 141.17 -82.55 141.17 -139.457 V 33.663291 h -148.373 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+
+        <Style x:Key="RightArrowIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="M 414.57143 146.6489 200.57743 -1.2800986 V 69.857901 H 2.5714289 V 223.4379 H 200.57743 v 71.138 l 213.994 -147.927 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+
+        <Style x:Key="LeftArrowIcon" TargetType="{x:Type Path}">
+            <Setter Property="Data">
+                <Setter.Value>
+                    <PathGeometry Figures="m 2.57143 146.6469 213.994 147.929 0 -71.138 198.006 0 0 -153.58 -198.006 0 0 -71.138 -213.994 147.927 z" FillRule="NonZero"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="#000000"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Art Set 1-->
+        <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="1" Width="300" Background="White">
+            <StackPanel>
+                <TextBlock Text="Art Set 1" HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding ElementName=This, Path=ArtSet1.Path}" HorizontalAlignment="left" TextWrapping="Wrap" />
+                <Border BorderBrush="Gray" BorderThickness="0.5">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="Click_Load" CommandParameter="1">
+                            <Button.ToolTip>Open Art.mul, ArtIdx.mul, and Tiledata.mul</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource OpenIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30"  Click="Click_Save" CommandParameter="1">
+                            <Button.ToolTip>Save Art.mul, ArtIdx.mul, and Tiledata.mul</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource SaveIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="Delete_Click" CommandParameter="1">
+                            <Button.ToolTip>Remove selected assets</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource DeleteIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="CopyToClipboard_Click" CommandParameter="1">
+                            <Button.ToolTip>Copy to clipboard</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource ClipboardIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- Items List-->
+                <ListView Visibility="{Binding ElementName=ItemsRadioButton, Path=IsChecked, Converter={StaticResource VisibilityConverter}}"
+                          x:Name="ArtList1" 
+                          ScrollViewer.ScrollChanged="ArtSet1_ScrollChanged"
+                          Height="580"  
+                          Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=This, Path=ArtSet1.Items}" ScrollViewer.CanContentScroll="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Index}" FontSize="20" VerticalAlignment="Center" />
+                                <Image Margin="50,0,0,0" Source="{Binding Converter={StaticResource ResourceKey=ImageConverter}}">
+                                    <Image.ToolTip>
+                                        <TextBlock Text="{Binding Path=ItemDatum.Name}" />
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Land List-->
+                <ListView Visibility="{Binding ElementName=LandRadioButton, Path=IsChecked, Converter={StaticResource VisibilityConverter}}"
+                          x:Name="LandList1" 
+                          ScrollViewer.ScrollChanged="LandSet1_ScrollChanged"
+                          Height="580"  
+                          Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=This, Path=ArtSet1.Land}" ScrollViewer.CanContentScroll="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Index}" FontSize="20" VerticalAlignment="Center" />
+                                <Image Margin="50,0,0,0" Source="{Binding Converter={StaticResource ResourceKey=ImageConverter}}">
+                                    <Image.ToolTip>
+                                        <TextBlock Text="{Binding Path=LandDatum.Name}" />
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </StackPanel>
+        </Border>
+
+        <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="5,0,5,0">
+            <CheckBox Width="60" Height="50" VerticalAlignment="Center" Margin="0,10,0,60" IsChecked="{Binding ElementName=This, Path=ModifyTileData}">
+                <CheckBox.ToolTip>Modify Tiledata appropriately (applies to all buttons)</CheckBox.ToolTip>
+                <CheckBox.Content>
+                    <TextBlock Text="Modify Tile Data" TextWrapping="WrapWithOverflow" />
+                </CheckBox.Content>
+            </CheckBox>
+
+            <RadioButton Name="LandRadioButton"  Content="Land" />
+            <RadioButton Name="ItemsRadioButton" Margin="0,0,0,20"  Content="Items" IsChecked="{Binding ElementName=This, Path=DisplayItemData}" />
+
+            <Button Name="LinkedButton" Height="30" Width="50"  Click="Link_Click">
+                <Button.ToolTip>Synchronize Scrollbars</Button.ToolTip>
+                <Button.Content>
+                    <Viewbox>
+                        <Grid Margin="0,0,0,0">
+                            <Path Name="LinkedButtonpath" Style="{StaticResource LinkedIcon}" />
+                        </Grid>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+
+            <Button Height="30" Width="50" Click="MoveRight_Click">
+                <Button.ToolTip>Copy selected assets to Art Set 2</Button.ToolTip>
+                <Button.Content>
+                    <Viewbox>
+                        <Grid Margin="0,0,0,0">
+                            <Path Style="{StaticResource RightArrowIcon}" />
+                        </Grid>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+
+            <Button Height="30" Width="50" Click="MoveLeft_Click">
+                <Button.ToolTip>Copy selected assets to Art Set 1</Button.ToolTip>
+                <Button.Content>
+                    <Viewbox>
+                        <Grid Margin="0,0,0,0">
+                            <Path Style="{StaticResource LeftArrowIcon}" />
+                        </Grid>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <!-- Art Set 2 -->
+        <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="1" Width="300" Background="White">
+            <StackPanel>
+                <TextBlock Text="Art Set 2" HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding ElementName=This, Path=ArtSet2.Path}" HorizontalAlignment="left" TextWrapping="Wrap" />
+                <Border BorderBrush="Gray" BorderThickness="0.5">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="Click_Load" CommandParameter="2">
+                            <Button.ToolTip>Open Art.mul, ArtIdx.mul, and Tiledata.mul</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource OpenIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30"  Click="Click_Save" CommandParameter="2">
+                            <Button.ToolTip>Save Art.mul, ArtIdx.mul, and Tiledata.mul</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource SaveIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="Delete_Click" CommandParameter="2">
+                            <Button.ToolTip>Remove selected assets</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource DeleteIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="CopyToClipboard_Click" CommandParameter="2">
+                            <Button.ToolTip>Copy to clipboard</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource ClipboardIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- Items List-->
+                <ListView Visibility="{Binding ElementName=ItemsRadioButton, Path=IsChecked, Converter={StaticResource VisibilityConverter}}"
+                          x:Name="ArtList2" 
+                          ScrollViewer.ScrollChanged="ArtSet2_ScrollChanged"
+                          Height="580"  
+                          Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=This, Path=ArtSet2.Items}" ScrollViewer.CanContentScroll="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Index}" FontSize="20" VerticalAlignment="Center" />
+                                <Image Margin="50,0,0,0" Source="{Binding Converter={StaticResource ResourceKey=ImageConverter}}">
+                                    <Image.ToolTip>
+                                        <TextBlock Text="{Binding Path=ItemDatum.Name}" />
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Land List-->
+                <ListView Visibility="{Binding ElementName=LandRadioButton, Path=IsChecked, Converter={StaticResource VisibilityConverter}}"
+                          x:Name="LandList2" 
+                          ScrollViewer.ScrollChanged="LandSet2_ScrollChanged"
+                          Height="580"  
+                          HorizontalAlignment="Stretch" 
+                          ItemsSource="{Binding ElementName=This, Path=ArtSet2.Land}" 
+                          ScrollViewer.CanContentScroll="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Index}" FontSize="20" VerticalAlignment="Center" />
+                                <Image Margin="50,0,0,0" Source="{Binding Converter={StaticResource ResourceKey=ImageConverter}}">
+                                    <Image.ToolTip>
+                                        <TextBlock Text="{Binding Path=LandDatum.Name}" />
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackPanel>
+        </Border>
+
+        <!-- Clipboard -->
+        <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="1" Width="300" Margin="10,0,0,0" Background="White">
+            <StackPanel>
+                <TextBlock Text="Clipboard" HorizontalAlignment="Center" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Items in clipboard:  " HorizontalAlignment="left" />
+                    <TextBlock Text="{Binding ElementName=This, Path=ClipBoardItems.Count}" HorizontalAlignment="left" />
+                </StackPanel>
+                <Border BorderBrush="Gray" BorderThickness="0.5">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="DeleteItemsFromClipboard_Click">
+                            <Button.ToolTip>Remove selected assets</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource DeleteIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="ClearClipboard_Click">
+                            <Button.ToolTip>Clear clipboard of all assets</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource ClipboardBlankIcon}" />
+                                        <Path Style="{StaticResource ClipboardXIcon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="CopyFromClipboard_Click" CommandParameter="1">
+                            <Button.ToolTip>Move selected assets to Art Set 1</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource Clipboard1Icon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="3,0,0,0" Width="30" Height="30" Click="CopyFromClipboard_Click" CommandParameter="2">
+                            <Button.ToolTip>Move selected assets to Art Set 2</Button.ToolTip>
+                            <Button.Content>
+                                <Viewbox>
+                                    <Grid Margin="0,0,0,0">
+                                        <Path Style="{StaticResource Clipboard2Icon}" />
+                                    </Grid>
+                                </Viewbox>
+                            </Button.Content>
+                        </Button>
+
+
+                    </StackPanel>
+                </Border>
+
+                <ListView Visibility="{Binding ElementName=ItemsRadioButton, Path=IsChecked, Converter={StaticResource VisibilityConverter}}" 
+                    Name="ClipboardItemList" 
+                    Height="580"  
+                    HorizontalAlignment="Stretch" 
+                    ItemsSource="{Binding ElementName=This, Path=ClipBoardItems}"
+                    ScrollViewer.CanContentScroll="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="50,0,0,0" Source="{Binding Converter={StaticResource ResourceKey=ImageConverter}}" >
+                                    <Image.ToolTip>
+                                        <TextBlock Text="{Binding Path=ItemDatum.Name}" />
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Visibility="{Binding ElementName=LandRadioButton, Path=IsChecked, Converter={StaticResource VisibilityConverter}}" 
+                    Name="ClipboardLandList" 
+                    Height="580"  
+                    HorizontalAlignment="Stretch" 
+                    ItemsSource="{Binding ElementName=This, Path=ClipBoardLand}" 
+                    ScrollViewer.CanContentScroll="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="50,0,0,0" Source="{Binding Converter={StaticResource ResourceKey=ImageConverter}}" >
+                                    <Image.ToolTip>
+                                        <TextBlock Text="{Binding Path=LandDatum.Name}" />
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackPanel>
+        </Border>
+        <Border DockPanel.Dock="Left" />
+    </DockPanel>
+</Window>
