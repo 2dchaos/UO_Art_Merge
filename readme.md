@@ -4,7 +4,7 @@ This was coded and made by Praxiiz of the servUO community in 2014. For personal
 A member of the community archived the code and decided to kindly share with me, so I'm putting it here for archival purposes.
 If you want to fork or continue enhancing this project, feel free to do so, I'm unable to mantain it due to lack of programming knowledge but it's a VERY useful tool for shard creators.
 
-![interface](/screenshot.png)
+![interface](../screenshot.png)
 
 --Original Readme--
 
